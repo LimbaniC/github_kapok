@@ -1,3 +1,4 @@
+import '../teams/teams_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -442,6 +443,10 @@ class _ProfileOnboardingWidgetState extends State<ProfileOnboardingWidget> {
                     child: FFButtonWidget(
                       onPressed: () {
                         print('Button pressed ...');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TeamsWidget()));
                       },
                       text: 'Confirm',
                       options: FFButtonOptions(

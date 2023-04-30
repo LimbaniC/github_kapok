@@ -1,4 +1,5 @@
 import '../kapok_map/kapok_map_widget.dart';
+import '../profile_onboarding/profile_onboarding_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -859,6 +860,11 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                               //         HomePageWidget(),
                                               //   ),
                                               // );
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          ProfileOnboardingWidget()));
                                             },
                                             text: 'Create Account',
                                             options: FFButtonOptions(
