@@ -1,8 +1,6 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_static_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/lat_lng.dart';
 import '/profile_onboarding/profile_onboarding_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -13,6 +11,11 @@ import 'package:mapbox_search/mapbox_search.dart';
 import 'package:provider/provider.dart';
 import 'kapok_map_model.dart';
 export 'kapok_map_model.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:github_kapok/constants/app_constants.dart';
+import 'map_marker_model.dart';
+import 'package:latlong2/latlong.dart';
 
 class KapokMapWidget extends StatefulWidget {
   const KapokMapWidget({Key? key}) : super(key: key);
@@ -21,7 +24,14 @@ class KapokMapWidget extends StatefulWidget {
   _KapokMapWidgetState createState() => _KapokMapWidgetState();
 }
 
-class _KapokMapWidgetState extends State<KapokMapWidget> {
+class _KapokMapWidgetState extends State<KapokMapWidget> with TickerProviderStateMixin {
+
+  final pageController = PageController();
+  int selectedIndex = 0;
+  var currentLocation = AppConstants.myLocation;
+
+  late final MapController mapController;
+  
   late KapokMapModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -32,6 +42,7 @@ class _KapokMapWidgetState extends State<KapokMapWidget> {
     _model = createModel(context, () => KapokMapModel());
 
     _model.textController ??= TextEditingController();
+    mapController = MapController();
   }
 
   @override
@@ -102,28 +113,155 @@ class _KapokMapWidgetState extends State<KapokMapWidget> {
               Expanded(
                 child: Stack(
                   children: [
-                    Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 1.0,
-                        decoration: BoxDecoration(),
-                        child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: FlutterFlowStaticMap(
-                            location: LatLng(9.341465, -79.891704),
-                            apiKey:
-                                'pk.eyJ1IjoiYXJrYW5lZ3J2IiwiYSI6ImNrdzg1enVrMDF5OGIycXBkbXltbWd1d3IifQ.UTwGUjE7A64wqczBwMW4cg',
-                            style: MapBoxStyle.Light,
-                            width: MediaQuery.of(context).size.width * 1.0,
-                            height: MediaQuery.of(context).size.height * 1.0,
-                            fit: BoxFit.cover,
-                            borderRadius: BorderRadius.circular(0.0),
-                            cached: true,
-                            zoom: 12,
-                            tilt: 0,
-                            rotation: 0,
+                    FlutterMap(
+                          mapController: mapController,
+                          options: MapOptions(
+                            minZoom: 5,
+                            maxZoom: 18,
+                            zoom: 11,
+                            center: currentLocation,
                           ),
+                          layers: [
+                            TileLayerOptions(
+                              urlTemplate:
+                                  "https://api.mapbox.com/styles/v1/kapok-developer/{mapStyleId}/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}",
+                              additionalOptions: {
+                                'mapStyleId': AppConstants.mapBoxStyleId,
+                                'accessToken': AppConstants.mapBoxAccessToken,
+                              },
+                            ),
+                            MarkerLayerOptions(
+                              markers: [
+                                for (int i = 0; i < mapMarkers.length; i++)
+                                  Marker(
+                                    height: 40,
+                                    width: 40,
+                                    point: mapMarkers[i].location ?? AppConstants.myLocation,
+                                    builder: (_) {
+                                      return GestureDetector(
+                                        onTap: () {
+                                          pageController.animateToPage(
+                                            i,
+                                            duration: const Duration(milliseconds: 500),
+                                            curve: Curves.easeInOut,
+                                          );
+                                          selectedIndex = i;
+                                          currentLocation = mapMarkers[i].location ??
+                                              AppConstants.myLocation;
+                                          _animatedMapMove(currentLocation, 11.5);
+                                          setState(() {});
+                                        },
+                                        child: AnimatedScale(
+                                          duration: const Duration(milliseconds: 500),
+                                          scale: selectedIndex == i ? 1 : 0.7,
+                                          child: AnimatedOpacity(
+                                            duration: const Duration(milliseconds: 500),
+                                            opacity: selectedIndex == i ? 1 : 0.5,
+                                            child: SvgPicture.asset(
+                                              'assets/icons/map_marker.svg',
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                              ],
+                            ),
+                          ],
                         ),
+                        Positioned(
+                          left: 0,
+                          right: 0,
+                          bottom: 2,
+                          height: MediaQuery.of(context).size.height * 0.3,
+                          child: PageView.builder(
+                            controller: pageController,
+                            onPageChanged: (value) {
+                              selectedIndex = value;
+                              currentLocation =
+                                  mapMarkers[value].location ?? AppConstants.myLocation;
+                              _animatedMapMove(currentLocation, 11.5);
+                              setState(() {});
+                            },
+                            itemCount: mapMarkers.length,
+                            itemBuilder: (_, index) {
+                              final item = mapMarkers[index];
+                              return Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: Card(
+                                  elevation: 5,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  color: const Color.fromARGB(255, 30, 29, 29),
+                                  child: Row(
+                                    children: [
+                                      const SizedBox(width: 10),
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Expanded(
+                                              child: ListView.builder(
+                                                padding: EdgeInsets.zero,
+                                                scrollDirection: Axis.horizontal,
+                                                itemCount: item.rating,
+                                                itemBuilder:
+                                                    (BuildContext context, int index) {
+                                                  return const Icon(
+                                                    Icons.star,
+                                                    color: Colors.orange,
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                            Expanded(
+                                              flex: 2,
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    item.title ?? '',
+                                                    style: const TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(height: 10),
+                                                  Text(
+                                                    item.address ?? '',
+                                                    style: const TextStyle(
+                                                      fontSize: 14,
+                                                      color: Colors.grey,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(width: 10),
+                                      Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.circular(10),
+                                            child: Image.asset(
+                                              item.image ?? '',
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 10),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        )],
                       ),
                     ),
                     Row(
@@ -282,107 +420,48 @@ class _KapokMapWidgetState extends State<KapokMapWidget> {
                       ],
                     ),
                   ],
-                ),
-              ),
-            ],
-          ),
-          Align(
-            alignment: AlignmentDirectional(0.0, 1.0),
-            child: Container(
-              width: MediaQuery.of(context).size.width * 1.0,
-              height: MediaQuery.of(context).size.height * 0.08,
-              decoration: BoxDecoration(
-                color: Color(0xFF013576),
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(0.0),
-                  bottomRight: Radius.circular(0.0),
-                  topLeft: Radius.circular(45.0),
-                  topRight: Radius.circular(45.0),
-                ),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
-                    child: FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 10.0,
-                      borderWidth: 1.0,
-                      buttonSize: 60.0,
-                      icon: Icon(
-                        Icons.person,
-                        color: Colors.white,
-                        size: 30.0,
-                      ),
-                      onPressed: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProfileOnboardingWidget(),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(-1.0, -0.05),
-                    child: FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 10.0,
-                      borderWidth: 1.0,
-                      buttonSize: 60.0,
-                      icon: Icon(
-                        Icons.chat,
-                        color: Colors.white,
-                        size: 30.0,
-                      ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
-                    ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
-                    child: FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 30.0,
-                      borderWidth: 1.0,
-                      buttonSize: 60.0,
-                      icon: Icon(
-                        Icons.people,
-                        color: Colors.white,
-                        size: 30.0,
-                      ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
-                    ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
-                    child: FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 30.0,
-                      borderWidth: 1.0,
-                      buttonSize: 60.0,
-                      icon: Icon(
-                        Icons.group_add,
-                        color: Colors.white,
-                        size: 30.0,
-                      ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
-                    ),
-                  ),
-                ],
-              ),
+                ), 
+              ], 
             ),
-          ),
-        ],
-      ),
     );
   }
+
+  void _animatedMapMove(LatLng destLocation, double destZoom) {
+    // Create some tweens. These serve to split up the transition from one location to another.
+    // In our case, we want to split the transition be<tween> our current map center and the destination.
+    final latTween = Tween<double>(
+        begin: mapController.center.latitude, end: destLocation.latitude);
+    final lngTween = Tween<double>(
+        begin: mapController.center.longitude, end: destLocation.longitude);
+    final zoomTween = Tween<double>(begin: mapController.zoom, end: destZoom);
+
+    // Create a animation controller that has a duration and a TickerProvider.
+    var controller = AnimationController(
+        duration: const Duration(milliseconds: 1000), vsync: this);
+    // The animation determines what path the animation will take. You can try different Curves values, although I found
+    // fastOutSlowIn to be my favorite.
+    Animation<double> animation =
+        CurvedAnimation(parent: controller, curve: Curves.fastOutSlowIn);
+
+    controller.addListener(() {
+      mapController.move(
+        LatLng(latTween.evaluate(animation), lngTween.evaluate(animation)),
+        zoomTween.evaluate(animation),
+      );
+    });
+
+    animation.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        controller.dispose();
+      } else if (status == AnimationStatus.dismissed) {
+        controller.dispose();
+      }
+    });
+
+    controller.forward();
+  }
+
+
+
 }
+

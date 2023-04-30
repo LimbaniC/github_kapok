@@ -2,8 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mapbox_search/colors/color.dart' show RgbColor;
 import 'package:mapbox_search/mapbox_search.dart';
-
-import 'lat_lng.dart';
+import 'package:latlong2/latlong.dart';
 
 class FlutterFlowStaticMap extends StatelessWidget {
   const FlutterFlowStaticMap({

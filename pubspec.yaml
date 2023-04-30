@@ -32,8 +32,10 @@ dependencies:
   expandable: 5.0.1
   flutter_animate: 4.1.1+1
   flutter_cache_manager: 3.3.0
+  flutter_map: ^1.1.1
   flutter_rating_bar: 4.0.1
   flutter_spinkit: 5.1.0
+  flutter_svg: ^1.1.0
   font_awesome_flutter: 10.1.0
   from_css_color: 2.0.0
   google_fonts: 4.0.3
