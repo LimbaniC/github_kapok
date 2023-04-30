@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+export 'login_signup_widget.dart';
 
 class LoginSignupModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
@@ -64,5 +65,4 @@ class LoginSignupModel extends FlutterFlowModel {
   }
 
   /// Additional helper methods are added here.
-
 }
