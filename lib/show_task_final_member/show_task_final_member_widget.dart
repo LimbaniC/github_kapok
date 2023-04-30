@@ -366,7 +366,7 @@ class _ShowTaskFinalMemberWidgetState extends State<ShowTaskFinalMemberWidget> {
                       unratedColor: Color(0xFF9E9E9E),
                       itemCount: 5,
                       itemSize: 60.0,
-                      glowColor: FlutterFlowTheme.of(context).secondary,
+                      glowColor: Color(0xFF013576),
                     ),
                   ),
                 ),

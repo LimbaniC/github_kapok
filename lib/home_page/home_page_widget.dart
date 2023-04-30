@@ -1,3 +1,4 @@
+import '../login_signup/login_signup_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -82,9 +83,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
                 child: FFButtonWidget(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LoginSignupWidget()),
+                    );
                     print('Button pressed ...');
                   },
-                  text: 'LOGIN',
+                  text: 'Get started',
                   options: FFButtonOptions(
                     width: 130.0,
                     height: 40.0,

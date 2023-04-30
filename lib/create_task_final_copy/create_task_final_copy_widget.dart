@@ -67,8 +67,8 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
                 color: Colors.white,
                 size: 30.0,
               ),
-              onPressed: () async {
-                Navigator.pop(context);
+              onPressed: () {
+                print('IconButton pressed ...');
               },
             ),
             title: Text(
@@ -111,17 +111,11 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
                               height: 380.0,
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color(0x4E000000),
-                                    offset: Offset(4.0, 3.0),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(8.0),
                                 shape: BoxShape.rectangle,
                                 border: Border.all(
                                   color: Color(0xFF013576),
-                                  width: 2.0,
+                                  width: 3.0,
                                 ),
                               ),
                               alignment: AlignmentDirectional(0.0, -1.0),
@@ -135,12 +129,6 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
                                     height: 50.0,
                                     decoration: BoxDecoration(
                                       color: Color(0xFF013576),
-                                      borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(0.0),
-                                        bottomRight: Radius.circular(0.0),
-                                        topLeft: Radius.circular(20.0),
-                                        topRight: Radius.circular(20.0),
-                                      ),
                                     ),
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Align(
@@ -153,21 +141,25 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, -1.0),
-                                            child: SelectionArea(
-                                                child: Text(
-                                              'Location',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Lexend Deca',
-                                                        color: Colors.white,
-                                                        fontSize: 24.0,
-                                                      ),
-                                            )),
+                                            alignment: AlignmentDirectional(
+                                                0.0, -0.25),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                              child: SelectionArea(
+                                                  child: Text(
+                                                'Location',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Lexend Deca',
+                                                          color: Colors.white,
+                                                          fontSize: 16.0,
+                                                        ),
+                                              )),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -201,7 +193,7 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(25.0),
+                                              BorderRadius.circular(15.0),
                                           border: Border.all(
                                             color: Color(0xFF013576),
                                             width: 3.0,
@@ -297,7 +289,7 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         borderRadius:
-                                            BorderRadius.circular(25.0),
+                                            BorderRadius.circular(15.0),
                                         border: Border.all(
                                           color: Color(0xFF013576),
                                           width: 3.0,
@@ -392,7 +384,7 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         borderRadius:
-                                            BorderRadius.circular(25.0),
+                                            BorderRadius.circular(15.0),
                                         border: Border.all(
                                           color: Color(0xFF013576),
                                           width: 3.0,
@@ -478,92 +470,98 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color(0x43000000),
-                                  offset: Offset(5.0, 4.0),
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(5.0),
+                              borderRadius: BorderRadius.circular(8.0),
                               border: Border.all(
                                 color: Color(0xFF163D6E),
                                 width: 3.0,
                               ),
                             ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Container(
-                                  width: double.infinity,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFF013576),
-                                  ),
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Align(
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Container(
+                                    width: double.infinity,
+                                    height: 55.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF013576),
+                                    ),
                                     alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, -0.2),
-                                          child: SelectionArea(
-                                              child: Text(
-                                            'Category',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Lexend Deca',
-                                                  color: Colors.white,
-                                                  fontSize: 24.0,
-                                                ),
-                                          )),
-                                        ),
-                                      ],
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, -0.2),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                              child: SelectionArea(
+                                                  child: Text(
+                                                'Category',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Lexend Deca',
+                                                          color: Colors.white,
+                                                          fontSize: 16.0,
+                                                        ),
+                                              )),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                                FlutterFlowDropDown<String>(
-                                  controller: _model.dropDownValueController ??=
-                                      FormFieldController<String>(null),
-                                  options: [
-                                    'Construction',
-                                    'Electrical',
-                                    'Engineering',
-                                    'Medical',
-                                    'Plumbing',
-                                    'Supplies',
-                                    'Transportation',
-                                    'Other'
-                                  ],
-                                  onChanged: (val) => setState(
-                                      () => _model.dropDownValue = val),
-                                  width: double.infinity,
-                                  height: 100.0,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Open Sans',
-                                        color: Colors.black,
-                                        fontSize: 18.0,
-                                      ),
-                                  hintText: 'Please select...',
-                                  fillColor: Colors.white,
-                                  elevation: 2.0,
-                                  borderColor: Colors.black,
-                                  borderWidth: 0.0,
-                                  borderRadius: 0.0,
-                                  margin: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 4.0, 12.0, 4.0),
-                                  hidesUnderline: true,
-                                  isSearchable: false,
-                                ),
-                              ],
+                                  FlutterFlowDropDown<String>(
+                                    controller:
+                                        _model.dropDownValueController ??=
+                                            FormFieldController<String>(null),
+                                    options: [
+                                      'Construction',
+                                      'Electrical',
+                                      'Engineering',
+                                      'Medical',
+                                      'Plumbing',
+                                      'Supplies',
+                                      'Transportation',
+                                      'Other'
+                                    ],
+                                    onChanged: (val) => setState(
+                                        () => _model.dropDownValue = val),
+                                    width: double.infinity,
+                                    height: 100.0,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Open Sans',
+                                          color: Colors.black,
+                                          fontSize: 18.0,
+                                        ),
+                                    hintText: 'Please select...',
+                                    fillColor: Colors.white,
+                                    elevation: 2.0,
+                                    borderColor: Colors.black,
+                                    borderWidth: 0.0,
+                                    borderRadius: 0.0,
+                                    margin: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    hidesUnderline: true,
+                                    isSearchable: false,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -584,10 +582,10 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
                               height: 200.0,
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(10.0),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFF013567),
-                                  width: 5.0,
+                                  width: 3.0,
                                 ),
                               ),
                               child: Column(
@@ -606,18 +604,25 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, -0.1),
-                                          child: SelectionArea(
-                                              child: Text(
-                                            'Instructions/Notes',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Lexend Deca',
-                                                  color: Color(0xFFF2F4F8),
-                                                  fontSize: 24.0,
-                                                ),
-                                          )),
+                                              AlignmentDirectional(0.0, -0.05),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    5.0, 0.0, 0.0, 0.0),
+                                            child: SelectionArea(
+                                                child: Text(
+                                              'Instructions/Notes',
+                                              textAlign: TextAlign.start,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Lexend Deca',
+                                                    color: Color(0xFFF1F4F8),
+                                                    fontSize: 16.0,
+                                                  ),
+                                            )),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -765,10 +770,10 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
                             height: 250.0,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0),
+                              borderRadius: BorderRadius.circular(8.0),
                               border: Border.all(
                                 color: Color(0xFF013576),
-                                width: 5.0,
+                                width: 3.0,
                               ),
                             ),
                             alignment: AlignmentDirectional(0.0, 0.0),
@@ -784,17 +789,21 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      SelectionArea(
-                                          child: Text(
-                                        'Urgency',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Color(0xFFF6F9FC),
-                                              fontSize: 24.0,
-                                            ),
-                                      )),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5.0, 0.0, 0.0, 0.0),
+                                        child: SelectionArea(
+                                            child: Text(
+                                          'Urgency',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Lexend Deca',
+                                                color: Color(0xFFF6F9FC),
+                                                fontSize: 16.0,
+                                              ),
+                                        )),
+                                      ),
                                     ],
                                   ),
                                 ),

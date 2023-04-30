@@ -1,3 +1,4 @@
+import '../kapok_map/kapok_map_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -92,7 +93,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                           Align(
                             alignment: Alignment(0.0, 0),
                             child: TabBar(
-                              labelColor: Colors.white,
+                              labelColor: Color(0xFFF1F4F8),
                               labelStyle: GoogleFonts.getFont(
                                 'Open Sans',
                               ),
@@ -159,7 +160,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
@@ -167,7 +168,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
@@ -175,7 +176,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
@@ -184,7 +185,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               filled: true,
                                               fillColor: Colors.white,
@@ -269,7 +270,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
@@ -277,7 +278,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
@@ -285,7 +286,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
@@ -294,7 +295,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               filled: true,
                                               fillColor: Colors.white,
@@ -347,8 +348,29 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 24.0, 0.0, 0.0),
                                           child: FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button-Login pressed ...');
+                                            onPressed: () async {
+                                              // final user = await authManager
+                                              //     .signInWithEmail(
+                                              //   context,
+                                              //   _model
+                                              //       .emailAddressLoginController
+                                              //       .text,
+                                              //   _model.passwordLoginController
+                                              //       .text,
+                                              // );
+                                              // if (user == null) {
+                                              //   return;
+                                              // }
+
+                                              await Navigator
+                                                  .pushAndRemoveUntil(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      KapokMapWidget(),
+                                                ),
+                                                (r) => false,
+                                              );
                                             },
                                             text: 'Login',
                                             options: FFButtonOptions(
@@ -376,7 +398,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                 width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(90.0),
+                                                  BorderRadius.circular(8.0),
                                             ),
                                           ),
                                         ),
@@ -412,7 +434,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   .override(
                                                     fontFamily: 'Lexend Deca',
                                                     color: Color(0xFF95A1AC),
-                                                    fontSize: 14.0,
+                                                    fontSize: 12.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
@@ -423,7 +445,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
@@ -431,7 +453,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
@@ -439,7 +461,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
@@ -448,7 +470,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               filled: true,
                                               fillColor: Colors.white,
@@ -515,7 +537,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   .override(
                                                     fontFamily: 'Lexend Deca',
                                                     color: Color(0xFF95A1AC),
-                                                    fontSize: 14.0,
+                                                    fontSize: 12.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
@@ -526,7 +548,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
@@ -534,7 +556,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
@@ -542,7 +564,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
@@ -551,7 +573,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               filled: true,
                                               fillColor: Colors.white,
@@ -615,7 +637,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   .override(
                                                     fontFamily: 'Lexend Deca',
                                                     color: Color(0xFF95A1AC),
-                                                    fontSize: 14.0,
+                                                    fontSize: 12.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
@@ -626,7 +648,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
@@ -634,7 +656,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
@@ -642,7 +664,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
@@ -651,7 +673,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               filled: true,
                                               fillColor: Colors.white,
@@ -713,7 +735,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   .override(
                                                     fontFamily: 'Lexend Deca',
                                                     color: Color(0xFF95A1AC),
-                                                    fontSize: 14.0,
+                                                    fontSize: 12.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
@@ -724,7 +746,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
@@ -732,7 +754,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
@@ -740,7 +762,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
@@ -749,7 +771,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(90.0),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               filled: true,
                                               fillColor: Colors.white,
@@ -800,8 +822,43 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 24.0, 0.0, 0.0),
                                           child: FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
+                                            onPressed: () async {
+                                              if (_model.passwordController
+                                                      .text !=
+                                                  _model
+                                                      .passwordConfirmController
+                                                      .text) {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'Passwords don\'t match!',
+                                                    ),
+                                                  ),
+                                                );
+                                                return;
+                                              }
+
+                                              // final user = await authManager
+                                              //     .createAccountWithEmail(
+                                              //   context,
+                                              //   _model.emailAddressController
+                                              //       .text,
+                                              //   _model.passwordController.text,
+                                              // );
+                                              // if (user == null) {
+                                              //   return;
+                                              // }
+
+                                              // await authManager
+                                              //     .sendEmailVerification();
+                                              // await Navigator.push(
+                                              //   context,
+                                              //   MaterialPageRoute(
+                                              //     builder: (context) =>
+                                              //         HomePageWidget(),
+                                              //   ),
+                                              // );
                                             },
                                             text: 'Create Account',
                                             options: FFButtonOptions(
@@ -814,22 +871,14 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                               color: Colors.white,
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Open Sans',
-                                                        color:
-                                                            Color(0xFF013576),
-                                                        fontSize: 20.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
+                                                      .labelLarge,
                                               elevation: 3.0,
                                               borderSide: BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(90.0),
+                                                  BorderRadius.circular(8.0),
                                             ),
                                           ),
                                         ),
