@@ -1,3 +1,4 @@
+import '../teams/teams_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -69,6 +70,8 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
               ),
               onPressed: () {
                 print('IconButton pressed ...');
+                Navigator.pop(context,
+                    MaterialPageRoute(builder: (context) => TeamsWidget()));
               },
             ),
             title: Text(

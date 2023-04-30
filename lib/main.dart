@@ -7,10 +7,12 @@ import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'index.dart';
+import 'package:firebase_core/firebase_core.dart';
+// import 'package:flutter_fire_cli/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  // await Firebase.initializeApp();
   runApp(MyApp());
 }
 
