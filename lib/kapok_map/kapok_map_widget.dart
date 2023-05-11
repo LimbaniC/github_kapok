@@ -156,9 +156,11 @@ class _KapokMapWidgetState extends State<KapokMapWidget> with TickerProviderStat
                                           scale: selectedIndex == i ? 1 : 0.7,
                                           child: AnimatedOpacity(
                                             duration: const Duration(milliseconds: 500),
-                                            opacity: selectedIndex == i ? 1 : 0.5,
-                                            child: SvgPicture.asset(
-                                              'assets/icons/map_marker.svg',
+                                            opacity: selectedIndex == i ? 1 : 0.8,
+                                            child: Icon(
+                                              Icons.location_pin,
+                                              size: 50,
+                                              color: mapMarkers[i].completed ? Color(0xff013576) : Colors.grey
                                             ),
                                           ),
                                         ),
@@ -193,7 +195,7 @@ class _KapokMapWidgetState extends State<KapokMapWidget> with TickerProviderStat
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  color: const Color.fromARGB(255, 30, 29, 29),
+                                  color: Colors.white,
                                   child: Row(
                                     children: [
                                       const SizedBox(width: 10),
@@ -239,19 +241,6 @@ class _KapokMapWidgetState extends State<KapokMapWidget> with TickerProviderStat
                                               ),
                                             ),
                                           ],
-                                        ),
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Expanded(
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(4.0),
-                                          child: ClipRRect(
-                                            borderRadius: BorderRadius.circular(10),
-                                            child: Image.asset(
-                                              item.image ?? '',
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
                                         ),
                                       ),
                                       const SizedBox(width: 10),
