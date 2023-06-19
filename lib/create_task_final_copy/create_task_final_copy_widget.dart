@@ -1,3 +1,6 @@
+import 'package:github_kapok/index.dart';
+import 'package:github_kapok/show_task_final_manage/show_task_final_manage_model.dart';
+
 import '../teams/teams_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -883,6 +886,11 @@ class _CreateTaskFinalCopyWidgetState extends State<CreateTaskFinalCopyWidget> {
                           child: FFButtonWidget(
                             onPressed: () {
                               print('Button pressed ...');
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ShowTaskFinalManageWidget()));
                             },
                             text: 'Submit Task',
                             options: FFButtonOptions(

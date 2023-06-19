@@ -122,7 +122,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 20.0, 0.0, 0.0),
+                                                  0, 20, 0, 0),
                                           child: TextFormField(
                                             controller: _model
                                                 .emailAddressLoginController,
@@ -134,16 +134,9 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                             ),
                                             obscureText: false,
                                             decoration: InputDecoration(
-                                              labelStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF95A1AC),
-                                                    fontSize: 14.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                              labelStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
                                               hintText: 'Email Address',
                                               hintStyle: FlutterFlowTheme.of(
                                                       context)
@@ -151,49 +144,48 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   .override(
                                                     fontFamily: 'Lexend Deca',
                                                     color: Color(0xFF95A1AC),
-                                                    fontSize: 14.0,
+                                                    fontSize: 14,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: Color(0x00000000),
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                    BorderRadius.circular(8),
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: Color(0x00000000),
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                    BorderRadius.circular(8),
                                               ),
                                               errorBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: Color(0x00000000),
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                    BorderRadius.circular(8),
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: Color(0x00000000),
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                    BorderRadius.circular(8),
                                               ),
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
                                                   EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 24.0, 0.0, 24.0),
+                                                      .fromSTEB(0, 24, 0, 24),
                                               prefixIcon: Icon(
                                                 Icons.mail,
                                                 color: Color(0xFF013576),
@@ -213,7 +205,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                         Icons.clear,
                                                         color:
                                                             Color(0xFF013576),
-                                                        size: 22.0,
+                                                        size: 22,
                                                       ),
                                                     )
                                                   : null,
@@ -223,7 +215,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                 .override(
                                                   fontFamily: 'Open Sans',
                                                   color: Color(0xFF14181B),
-                                                  fontSize: 14.0,
+                                                  fontSize: 14,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                             textAlign: TextAlign.center,
@@ -233,11 +225,130 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                 .emailAddressLoginControllerValidator
                                                 .asValidator(context),
                                           ),
-                                        ),
+                                        )
+                                        // Padding(
+                                        //   padding:
+                                        //       // EdgeInsetsDirectional.fromSTEB(
+                                        //       //     0.0, 20.0, 0.0, 0.0),
+                                        //       EdgeInsets.symmetric(
+                                        //           vertical: 24.0,
+                                        //           horizontal: 10.0),
+                                        //   child: TextFormField(
+                                        //     controller: _model
+                                        //         .emailAddressLoginController,
+                                        //     onChanged: (_) =>
+                                        //         EasyDebounce.debounce(
+                                        //       '_model.emailAddressLoginController',
+                                        //       Duration(milliseconds: 2000),
+                                        //       () => setState(() {}),
+                                        //     ),
+                                        //     obscureText: false,
+                                        //     decoration: InputDecoration(
+                                        //       labelStyle: FlutterFlowTheme.of(
+                                        //               context)
+                                        //           .bodyMedium
+                                        //           .override(
+                                        //             fontFamily: 'Lexend Deca',
+                                        //             color: Color(0xFF95A1AC),
+                                        //             fontSize: 14.0,
+                                        //             fontWeight:
+                                        //                 FontWeight.normal,
+                                        //           ),
+                                        //       hintText: 'Email Address',
+                                        //       hintStyle: FlutterFlowTheme.of(
+                                        //               context)
+                                        //           .bodyMedium
+                                        //           .override(
+                                        //             fontFamily: 'Lexend Deca',
+                                        //             color: Color(0xFF95A1AC),
+                                        //             fontSize: 14.0,
+                                        //             fontWeight:
+                                        //                 FontWeight.normal,
+                                        //           ),
+                                        //       enabledBorder: OutlineInputBorder(
+                                        //         borderSide: BorderSide(
+                                        //           color: Color(0x00000000),
+                                        //           width: 1.0,
+                                        //         ),
+                                        //         borderRadius:
+                                        //             BorderRadius.circular(8.0),
+                                        //       ),
+                                        //       focusedBorder: OutlineInputBorder(
+                                        //         borderSide: BorderSide(
+                                        //           color: Color(0x00000000),
+                                        //           width: 1.0,
+                                        //         ),
+                                        //         borderRadius:
+                                        //             BorderRadius.circular(8.0),
+                                        //       ),
+                                        //       errorBorder: OutlineInputBorder(
+                                        //         borderSide: BorderSide(
+                                        //           color: Color(0x00000000),
+                                        //           width: 1.0,
+                                        //         ),
+                                        //         borderRadius:
+                                        //             BorderRadius.circular(8.0),
+                                        //       ),
+                                        //       focusedErrorBorder:
+                                        //           OutlineInputBorder(
+                                        //         borderSide: BorderSide(
+                                        //           color: Color(0x00000000),
+                                        //           width: 1.0,
+                                        //         ),
+                                        //         borderRadius:
+                                        //             BorderRadius.circular(8.0),
+                                        //       ),
+                                        //       filled: true,
+                                        //       fillColor: Colors.white,
+                                        //       contentPadding:
+                                        //           EdgeInsetsDirectional
+                                        //               .fromSTEB(
+                                        //                   0.0, 24.0, 0.0, 24.0),
+                                        //       prefixIcon: Icon(
+                                        //         Icons.mail,
+                                        //         color: Color(0xFF013576),
+                                        //       ),
+                                        //       suffixIcon: _model
+                                        //               .emailAddressLoginController!
+                                        //               .text
+                                        //               .isNotEmpty
+                                        //           ? InkWell(
+                                        //               onTap: () async {
+                                        //                 _model
+                                        //                     .emailAddressLoginController
+                                        //                     ?.clear();
+                                        //                 setState(() {});
+                                        //               },
+                                        //               child: Icon(
+                                        //                 Icons.clear,
+                                        //                 color:
+                                        //                     Color(0xFF013576),
+                                        //                 size: 22.0,
+                                        //               ),
+                                        //             )
+                                        //           : null,
+                                        //     ),
+                                        //     style: FlutterFlowTheme.of(context)
+                                        //         .bodyMedium
+                                        //         .override(
+                                        //           fontFamily: 'Open Sans',
+                                        //           color: Color(0xFF14181B),
+                                        //           fontSize: 14.0,
+                                        //           fontWeight: FontWeight.normal,
+                                        //         ),
+                                        //     textAlign: TextAlign.center,
+                                        //     keyboardType:
+                                        //         TextInputType.emailAddress,
+                                        //     validator: _model
+                                        //         .emailAddressLoginControllerValidator
+                                        //         .asValidator(context),
+                                        //   ),
+                                        // ),
+                                        ,
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 12.0, 0.0, 0.0),
+                                                  0.0, 20.0, 0.0, 0.0),
                                           child: TextFormField(
                                             controller:
                                                 _model.passwordLoginController,
@@ -347,7 +458,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 24.0, 0.0, 0.0),
+                                                  0.0, 24.0, 0.0, 24.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               // final user = await authManager
@@ -523,111 +634,6 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                                   0.0, 12.0, 0.0, 0.0),
                                           child: TextFormField(
                                             controller:
-                                                _model.emailAddressController,
-                                            onChanged: (_) =>
-                                                EasyDebounce.debounce(
-                                              '_model.emailAddressController',
-                                              Duration(milliseconds: 2000),
-                                              () => setState(() {}),
-                                            ),
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              labelStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF95A1AC),
-                                                    fontSize: 12.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
-                                              hintText: 'Email Address',
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedErrorBorder:
-                                                  OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              filled: true,
-                                              fillColor: Colors.white,
-                                              contentPadding:
-                                                  EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 24.0, 0.0, 24.0),
-                                              prefixIcon: Icon(
-                                                Icons.mail,
-                                                color: Color(0xFF013576),
-                                              ),
-                                              suffixIcon: _model
-                                                      .emailAddressController!
-                                                      .text
-                                                      .isNotEmpty
-                                                  ? InkWell(
-                                                      onTap: () async {
-                                                        _model
-                                                            .emailAddressController
-                                                            ?.clear();
-                                                        setState(() {});
-                                                      },
-                                                      child: Icon(
-                                                        Icons.clear,
-                                                        color:
-                                                            Color(0xFF013576),
-                                                        size: 22.0,
-                                                      ),
-                                                    )
-                                                  : null,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Open Sans',
-                                                  color: Color(0xFF14181B),
-                                                  fontSize: 14.0,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                            textAlign: TextAlign.center,
-                                            keyboardType:
-                                                TextInputType.emailAddress,
-                                            validator: _model
-                                                .emailAddressControllerValidator
-                                                .asValidator(context),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 12.0, 0.0, 0.0),
-                                          child: TextFormField(
-                                            controller:
                                                 _model.passwordController,
                                             obscureText:
                                                 !_model.passwordVisibility,
@@ -679,9 +685,12 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 24.0, 0.0, 24.0),
+                                                  // EdgeInsetsDirectional
+                                                  //     .fromSTEB(
+                                                  //         0.0, 24.0, 0.0, 24.0),
+                                                  EdgeInsets.symmetric(
+                                                      vertical: 24.0,
+                                                      horizontal: 10.0),
                                               prefixIcon: Icon(
                                                 Icons.vpn_key,
                                                 color: Color(0xFF013576),
