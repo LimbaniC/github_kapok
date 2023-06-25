@@ -10,11 +10,10 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../main.dart';
 
-import 'lat_lng.dart';
+import 'package:latlong2/latlong.dart';
 
 export 'keep_alive_wrapper.dart';
-export 'lat_lng.dart';
-export 'place.dart';
+import 'package:latlong2/latlong.dart';
 export 'uploaded_file.dart';
 export 'flutter_flow_model.dart';
 export 'dart:math' show min, max;
