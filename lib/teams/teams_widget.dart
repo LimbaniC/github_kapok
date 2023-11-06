@@ -10,6 +10,15 @@ import 'package:provider/provider.dart';
 import 'teams_model.dart';
 export 'teams_model.dart';
 
+// TODO: Page seems to have a reversed theme
+// Buttons are reversed in terms of background color and text color
+// Are 'Create Team' and 'Join Team' considered heading? - dont have black color
+// Input also seems different
+
+// TODO: AppBar seems to be missing and so do navigation buttons
+
+// TODO: Overflow of display
+
 class TeamsWidget extends StatefulWidget {
   const TeamsWidget({Key? key}) : super(key: key);
 
@@ -131,6 +140,7 @@ class _TeamsWidgetState extends State<TeamsWidget> {
                     builder: (context) => CreateTaskFinalCopyWidget()));
           },
           text: 'Create',
+          // TODO: Colors for button and text seem to be reversed
           options: FFButtonOptions(
             width: 130.0,
             height: 40.0,
@@ -163,6 +173,7 @@ class _TeamsWidgetState extends State<TeamsWidget> {
               MaterialPageRoute(builder: (context) => KapokMapWidget()));
         },
         text: 'Join',
+        // TODO: Colors for button and text seem to be reversed
         options: FFButtonOptions(
           width: 130.0,
           height: 40.0,
