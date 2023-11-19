@@ -10,6 +10,8 @@ import 'package:provider/provider.dart';
 import 'teams_model.dart';
 export 'teams_model.dart';
 
+import '/flutter_flow/flutter_flow_icon_button.dart';
+
 // TODO: Page seems to have a reversed theme
 // Buttons are reversed in terms of background color and text color
 // Are 'Create Team' and 'Join Team' considered heading? - dont have black color
@@ -54,6 +56,7 @@ class _TeamsWidgetState extends State<TeamsWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFFF8F6F6),
+      appBar: getAppBar(),
       body: Container(
         width: MediaQuery.of(context).size.width * 1.0,
         height: MediaQuery.of(context).size.height * 1.0,
@@ -67,6 +70,42 @@ class _TeamsWidgetState extends State<TeamsWidget> {
             getPageContent(),
           ],
         ),
+      ),
+    );
+  }
+
+  PreferredSize getAppBar() {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(60.0),
+      child: AppBar(
+        backgroundColor: Color(0xFF013576),
+        automaticallyImplyLeading: false,
+        leading: FlutterFlowIconButton(
+          borderColor: Colors.transparent,
+          borderRadius: 30.0,
+          borderWidth: 1.0,
+          buttonSize: 60.0,
+          icon: Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+            size: 30.0,
+          ),
+          onPressed: () {
+            print('IconButton pressed ...');
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          'Teams',
+          style: FlutterFlowTheme.of(context).headlineMedium.override(
+                fontFamily: 'Lexend Deca',
+                color: Colors.white,
+                fontSize: 22.0,
+              ),
+        ),
+        actions: [],
+        centerTitle: true,
+        elevation: 2.0,
       ),
     );
   }
