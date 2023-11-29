@@ -283,7 +283,7 @@ class _TeamsWidgetState extends State<TeamsWidget> {
         padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
         child: Container(
           width: MediaQuery.of(context).size.width * 0.8,
-          height: MediaQuery.of(context).size.height * 0.28,
+          height: MediaQuery.of(context).size.height * 0.18,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20.0),
