@@ -205,36 +205,38 @@ class _TeamsWidgetState extends State<TeamsWidget> {
   }
 
   /// Returns the join team button
-  Padding getJoinTeamButtom() {
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-      child: FFButtonWidget(
-        onPressed: () {
-          print('Button pressed ...');
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => KapokMapWidget()));
-        },
-        text: 'Join',
-        // TODO: Colors for button and text seem to be reversed
-        options: FFButtonOptions(
-          width: 130.0,
-          height: 40.0,
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-          iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-          color: Colors.white,
-          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                fontFamily: 'Open Sans',
-                color: Color(0xFF013576),
+  Align getJoinTeamButtom() {
+    return Align(
+        alignment: AlignmentDirectional(0.0, 0.0),
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+          child: FFButtonWidget(
+            onPressed: () {
+              print('Button pressed ...');
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => KapokMapWidget()));
+            },
+            text: 'Join',
+            // TODO: Colors for button and text seem to be reversed
+            options: FFButtonOptions(
+              width: 130.0,
+              height: 40.0,
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+              color: Colors.white,
+              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                    fontFamily: 'Open Sans',
+                    color: Color(0xFF013576),
+                  ),
+              elevation: 2.0,
+              borderSide: BorderSide(
+                color: Colors.transparent,
+                width: 2.0,
               ),
-          elevation: 2.0,
-          borderSide: BorderSide(
-            color: Colors.transparent,
-            width: 2.0,
+              borderRadius: BorderRadius.circular(90.0),
+            ),
           ),
-          borderRadius: BorderRadius.circular(90.0),
-        ),
-      ),
-    );
+        ));
   }
 
   /// Returns the create team input box
@@ -281,7 +283,7 @@ class _TeamsWidgetState extends State<TeamsWidget> {
         padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
         child: Container(
           width: MediaQuery.of(context).size.width * 0.8,
-          height: MediaQuery.of(context).size.height * 0.18,
+          height: MediaQuery.of(context).size.height * 0.28,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20.0),
@@ -306,6 +308,25 @@ class _TeamsWidgetState extends State<TeamsWidget> {
   /////////////////////////////////////////////////////////////////
   /// Helpers that return sub widgets for create team input box
   /////////////////////////////////////////////////////////////////
+
+  /// gets the header for the create team box
+  Align getCTWIsHeader() {
+    return Align(
+      alignment: AlignmentDirectional(0.0, 0.0),
+      child: Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+        child: Text(
+          'Create Team',
+          textAlign: TextAlign.start,
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                fontFamily: 'Open Sans',
+                color: Color(0xFF013576),
+                fontSize: 24.0,
+              ),
+        ),
+      ),
+    );
+  }
 
   /// gets the name input box for the create team box
   Container getCTWIsNamebox(innerWidth, innerHeight) {
@@ -465,44 +486,28 @@ class _TeamsWidgetState extends State<TeamsWidget> {
     );
   }
 
-  /// gets the header for the create team box
-  Align getCTWIsHeader() {
-    return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
-      child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-        child: Text(
-          'Create Team',
-          textAlign: TextAlign.start,
-          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Open Sans',
-                color: Color(0xFF013576),
-                fontSize: 24.0,
-              ),
-        ),
-      ),
-    );
-  }
-
   /////////////////////////////////////////////////////////////////
   /// Helpers that return sub widgets for join team input box
   /////////////////////////////////////////////////////////////////
 
   /// gets the header for the join team box
-  Padding getJTWIsHeader() {
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-      child: Text(
-        'Join Team',
-        style: FlutterFlowTheme.of(context).bodyMedium.override(
-              fontFamily: 'Open Sans',
-              color: Color(0xFF013576),
-              fontSize: 24.0,
-            ),
-      ),
-    );
+  Align getJTWIsHeader() {
+    return Align(
+        alignment: AlignmentDirectional(0.0, 0.0),
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+          child: Text(
+            'Join Team',
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Open Sans',
+                  color: Color(0xFF013576),
+                  fontSize: 24.0,
+                ),
+          ),
+        ));
   }
 
+  /// gets the team code input box for the join team box
   Container getJTWIsTeamCodeBox(innerWidth, innerHeight) {
     return Container(
       width: innerWidth,
