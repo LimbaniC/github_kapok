@@ -12,12 +12,9 @@ export 'teams_model.dart';
 
 import '/flutter_flow/flutter_flow_icon_button.dart';
 
-// TODO: Page seems to have a reversed theme
 // Buttons are reversed in terms of background color and text color
 // Are 'Create Team' and 'Join Team' considered heading? - dont have black color
 // Input also seems different
-
-// TODO: AppBar seems to be missing and so do navigation buttons
 
 // TODO: Overflow of display
 
@@ -74,6 +71,8 @@ class _TeamsWidgetState extends State<TeamsWidget> {
     );
   }
 
+  /// Returns the appbar for this page - just a back button that pop's from the navigator stack <br/>
+  /// Copied appbar from one of the other pages to maintain consistency
   PreferredSize getAppBar() {
     return PreferredSize(
       preferredSize: Size.fromHeight(60.0),
@@ -110,6 +109,7 @@ class _TeamsWidgetState extends State<TeamsWidget> {
     );
   }
 
+  /// Returns the Kapok logo bar that is at the top of the web page
   Padding getLogoSection() {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
@@ -137,6 +137,7 @@ class _TeamsWidgetState extends State<TeamsWidget> {
     );
   }
 
+  /// Returns the page content - creating and joining team input boxes and buttons
   Padding getPageContent() {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
@@ -165,6 +166,7 @@ class _TeamsWidgetState extends State<TeamsWidget> {
     );
   }
 
+  /// Returns the create team button
   Align getCreateTeamButton() {
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
@@ -202,6 +204,7 @@ class _TeamsWidgetState extends State<TeamsWidget> {
     );
   }
 
+  /// Returns the join team button
   Padding getJoinTeamButtom() {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
@@ -234,6 +237,7 @@ class _TeamsWidgetState extends State<TeamsWidget> {
     );
   }
 
+  /// Returns the create team input box
   Align getCreateTeamInputWidget() {
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
@@ -249,173 +253,19 @@ class _TeamsWidgetState extends State<TeamsWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                  child: Text(
-                    'Create Team',
-                    textAlign: TextAlign.start,
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Open Sans',
-                          color: Color(0xFF013576),
-                          fontSize: 24.0,
-                        ),
-                  ),
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.7,
-                height: MediaQuery.of(context).size.height * 0.1,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.teamNameController,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Team Name',
-                      labelStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFF95A1AC),
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.normal,
-                              ),
-                      hintStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFF95A1AC),
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.normal,
-                              ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0xFF013576),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(90.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(90.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(90.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(90.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
-                      prefixIcon: Icon(
-                        Icons.group,
-                        color: Color(0xFF013576),
-                      ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Open Sans',
-                          color: Color(0xFF14181B),
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.normal,
-                        ),
-                    textAlign: TextAlign.center,
-                    validator:
-                        _model.teamNameControllerValidator.asValidator(context),
-                  ),
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.7,
-                height: MediaQuery.of(context).size.height * 0.1,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.locationController,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Location',
-                      labelStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFF95A1AC),
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.normal,
-                              ),
-                      hintStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFF95A1AC),
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.normal,
-                              ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0xFF013576),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(90.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(90.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(90.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(90.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
-                      prefixIcon: Icon(
-                        Icons.map,
-                        color: Color(0xFF013576),
-                      ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Open Sans',
-                          color: Color(0xFF14181B),
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.normal,
-                        ),
-                    textAlign: TextAlign.center,
-                    validator:
-                        _model.locationControllerValidator.asValidator(context),
-                  ),
-                ),
-              ),
+              getCTWIsHeader(),
+              Expanded(child: LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                double innerWidth = constraints.maxWidth * 0.9;
+                double innerHeight = constraints.maxHeight * 0.4;
+                return getCTWIsNamebox(innerWidth, innerHeight);
+              })),
+              Expanded(child: LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                double innerWidth = constraints.maxWidth * 0.9;
+                double innerHeight = constraints.maxHeight * 0.4;
+                return getCTWIsLocBox(innerWidth, innerHeight);
+              })),
             ],
           ),
         ),
@@ -423,6 +273,7 @@ class _TeamsWidgetState extends State<TeamsWidget> {
     );
   }
 
+  /// Returns the join team input box
   Align getJoinTeamInputWidget() {
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
@@ -438,95 +289,294 @@ class _TeamsWidgetState extends State<TeamsWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                child: Text(
-                  'Join Team',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Open Sans',
-                        color: Color(0xFF013576),
-                        fontSize: 24.0,
-                      ),
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.7,
-                height: MediaQuery.of(context).size.height * 0.1,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.enterTeamNumController,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Team Code',
-                      labelStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFF95A1AC),
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.normal,
-                              ),
-                      hintStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFF95A1AC),
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.normal,
-                              ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0xFF013576),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(90.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(90.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(90.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(90.0),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
-                      prefixIcon: Icon(
-                        Icons.library_add_check_outlined,
-                        color: Color(0xFF013576),
-                      ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Open Sans',
-                          color: Color(0xFF14181B),
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.normal,
-                        ),
-                    textAlign: TextAlign.center,
-                    validator: _model.enterTeamNumControllerValidator
-                        .asValidator(context),
-                  ),
-                ),
-              ),
+              getJTWIsHeader(),
+              Expanded(child: LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                double innerWidth = constraints.maxWidth * 0.9;
+                double innerHeight = constraints.maxHeight * 0.8;
+                return getJTWIsTeamCodeBox(innerWidth, innerHeight);
+              })),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  /////////////////////////////////////////////////////////////////
+  /// Helpers that return sub widgets for create team input box
+  /////////////////////////////////////////////////////////////////
+
+  /// gets the name input box for the create team box
+  Container getCTWIsNamebox(innerWidth, innerHeight) {
+    return Container(
+      width: innerWidth,
+      height: innerHeight,
+      // width: MediaQuery.of(context).size.width * 0.7,
+      // height: MediaQuery.of(context).size.height * 0.1,
+      decoration: BoxDecoration(
+        color: Colors.white,
+      ),
+      child: Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+        child: TextFormField(
+          controller: _model.teamNameController,
+          obscureText: false,
+          decoration: InputDecoration(
+            labelText: 'Team Name',
+            labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Lexend Deca',
+                  color: Color(0xFF95A1AC),
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.normal,
+                ),
+            hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Lexend Deca',
+                  color: Color(0xFF95A1AC),
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.normal,
+                ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xFF013576),
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(90.0),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(90.0),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(90.0),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(90.0),
+            ),
+            filled: true,
+            fillColor: Colors.white,
+            contentPadding:
+                EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
+            prefixIcon: Icon(
+              Icons.group,
+              color: Color(0xFF013576),
+            ),
+          ),
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                fontFamily: 'Open Sans',
+                color: Color(0xFF14181B),
+                fontSize: 14.0,
+                fontWeight: FontWeight.normal,
+              ),
+          textAlign: TextAlign.center,
+          validator: _model.teamNameControllerValidator.asValidator(context),
+        ),
+      ),
+    );
+  }
+
+  /// gets the location input box for the create team box
+  Container getCTWIsLocBox(innerWidth, innerHeight) {
+    return Container(
+      width: innerWidth,
+      height: innerHeight,
+      // width: MediaQuery.of(context).size.width * 0.7,
+      // height: MediaQuery.of(context).size.height * 0.1,
+      decoration: BoxDecoration(
+        color: Colors.white,
+      ),
+      child: Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+        child: TextFormField(
+          controller: _model.locationController,
+          obscureText: false,
+          decoration: InputDecoration(
+            labelText: 'Location',
+            labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Lexend Deca',
+                  color: Color(0xFF95A1AC),
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.normal,
+                ),
+            hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Lexend Deca',
+                  color: Color(0xFF95A1AC),
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.normal,
+                ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xFF013576),
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(90.0),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(90.0),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(90.0),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(90.0),
+            ),
+            filled: true,
+            fillColor: Colors.white,
+            contentPadding:
+                EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
+            prefixIcon: Icon(
+              Icons.map,
+              color: Color(0xFF013576),
+            ),
+          ),
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                fontFamily: 'Open Sans',
+                color: Color(0xFF14181B),
+                fontSize: 14.0,
+                fontWeight: FontWeight.normal,
+              ),
+          textAlign: TextAlign.center,
+          validator: _model.locationControllerValidator.asValidator(context),
+        ),
+      ),
+    );
+  }
+
+  /// gets the header for the create team box
+  Align getCTWIsHeader() {
+    return Align(
+      alignment: AlignmentDirectional(0.0, 0.0),
+      child: Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+        child: Text(
+          'Create Team',
+          textAlign: TextAlign.start,
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                fontFamily: 'Open Sans',
+                color: Color(0xFF013576),
+                fontSize: 24.0,
+              ),
+        ),
+      ),
+    );
+  }
+
+  /////////////////////////////////////////////////////////////////
+  /// Helpers that return sub widgets for join team input box
+  /////////////////////////////////////////////////////////////////
+
+  /// gets the header for the join team box
+  Padding getJTWIsHeader() {
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+      child: Text(
+        'Join Team',
+        style: FlutterFlowTheme.of(context).bodyMedium.override(
+              fontFamily: 'Open Sans',
+              color: Color(0xFF013576),
+              fontSize: 24.0,
+            ),
+      ),
+    );
+  }
+
+  Container getJTWIsTeamCodeBox(innerWidth, innerHeight) {
+    return Container(
+      width: innerWidth,
+      height: innerHeight,
+      // width: MediaQuery.of(context).size.width * 0.7,
+      // height: MediaQuery.of(context).size.height * 0.1,
+      decoration: BoxDecoration(
+        color: Colors.white,
+      ),
+      child: Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+        child: TextFormField(
+          controller: _model.enterTeamNumController,
+          obscureText: false,
+          decoration: InputDecoration(
+            labelText: 'Team Code',
+            labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Lexend Deca',
+                  color: Color(0xFF95A1AC),
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.normal,
+                ),
+            hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Lexend Deca',
+                  color: Color(0xFF95A1AC),
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.normal,
+                ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xFF013576),
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(90.0),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(90.0),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(90.0),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(90.0),
+            ),
+            filled: true,
+            fillColor: Colors.white,
+            contentPadding:
+                EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
+            prefixIcon: Icon(
+              Icons.library_add_check_outlined,
+              color: Color(0xFF013576),
+            ),
+          ),
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                fontFamily: 'Open Sans',
+                color: Color(0xFF14181B),
+                fontSize: 14.0,
+                fontWeight: FontWeight.normal,
+              ),
+          textAlign: TextAlign.center,
+          validator:
+              _model.enterTeamNumControllerValidator.asValidator(context),
         ),
       ),
     );
