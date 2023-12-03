@@ -54,20 +54,23 @@ class _TeamsWidgetState extends State<TeamsWidget> {
       key: scaffoldKey,
       backgroundColor: Color(0xFFF8F6F6),
       appBar: getAppBar(),
-      body: Container(
-        width: MediaQuery.of(context).size.width * 1.0,
-        height: MediaQuery.of(context).size.height * 1.0,
-        decoration: BoxDecoration(
-          color: Color(0xFF14181B),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            getLogoSection(),
-            getPageContent(),
-          ],
-        ),
-      ),
+      resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Container(
+            width: MediaQuery.of(context).size.width * 1.0,
+            height: MediaQuery.of(context).size.height * 1.0,
+            decoration: BoxDecoration(
+              color: Color(0xFF14181B),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                getLogoSection(),
+                Expanded(child: getPageContent()),
+              ],
+            ),
+          )),
     );
   }
 
@@ -244,7 +247,7 @@ class _TeamsWidgetState extends State<TeamsWidget> {
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
         child: Container(
           width: MediaQuery.of(context).size.width * 0.8,
           height: MediaQuery.of(context).size.height * 0.28,
@@ -253,7 +256,6 @@ class _TeamsWidgetState extends State<TeamsWidget> {
             borderRadius: BorderRadius.circular(20.0),
           ),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
             children: [
               getCTWIsHeader(),
               Expanded(child: LayoutBuilder(
@@ -280,7 +282,7 @@ class _TeamsWidgetState extends State<TeamsWidget> {
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
         child: Container(
           width: MediaQuery.of(context).size.width * 0.8,
           height: MediaQuery.of(context).size.height * 0.18,
